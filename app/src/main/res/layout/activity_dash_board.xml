@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".activities.DashBoardActivity">
+
+    <include
+        android:id="@+id/appBar"
+        layout="@layout/app_bar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/appBar" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_59sdp"
+        android:background="@color/dark_red_color"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:paddingHorizontal="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/home_tab"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/icon_home_selected" />
+
+        <ImageView
+            android:id="@+id/profile_tab"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/icon_profile_unselected" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

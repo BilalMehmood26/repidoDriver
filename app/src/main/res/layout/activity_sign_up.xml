@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".activities.SignUpActivity">
+
+    <include
+        android:id="@+id/appBar"
+        layout="@layout/app_bar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/firstNameET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_box"
+        android:paddingVertical="@dimen/_12sdp"
+        android:hint="First Name"
+        android:textColorHint="@color/hint_color"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="italic"
+        android:imeOptions="actionNext"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        app:layout_constraintBottom_toTopOf="@+id/lastNameET" />
+
+    <EditText
+        android:id="@+id/lastNameET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_box"
+        android:paddingVertical="@dimen/_12sdp"
+        android:hint="Last Name"
+        android:textColorHint="@color/hint_color"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="italic"
+        android:imeOptions="actionNext"
+        android:inputType="textEmailAddress"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        app:layout_constraintBottom_toTopOf="@+id/emailET" />
+
+    <EditText
+        android:id="@+id/emailET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_box"
+        android:paddingVertical="@dimen/_12sdp"
+        android:hint="Email Address"
+        android:textColorHint="@color/hint_color"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="italic"
+        android:imeOptions="actionNext"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        app:layout_constraintBottom_toTopOf="@+id/phoneLayout" />
+
+    <LinearLayout
+        android:id="@+id/phoneLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        app:layout_constraintBottom_toTopOf="@+id/passwordLayout">
+
+        <EditText
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_box"
+            android:paddingVertical="@dimen/_12sdp"
+            android:hint="+44"
+            android:textColorHint="@color/hint_color"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="italic"
+            android:imeOptions="actionNext"
+            android:paddingHorizontal="@dimen/_10sdp" />
+
+        <EditText
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_box"
+            android:paddingVertical="@dimen/_12sdp"
+            android:hint="Phone Number"
+            android:textColorHint="@color/hint_color"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="italic"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:imeOptions="actionNext"
+            android:paddingHorizontal="@dimen/_10sdp" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/passwordLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_box"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        app:layout_constraintBottom_toTopOf="@+id/createAccountTV">
+
+        <EditText
+            android:id="@+id/passwordET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="Password"
+            android:textColorHint="@color/hint_color"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="italic"
+            android:imeOptions="actionDone"
+            android:paddingVertical="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/backIV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/backIV"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:src="@drawable/icon_eye_show"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/createAccountTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/red_color"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/_40sdp"
+        android:paddingVertical="@dimen/_12sdp"
+        android:text="Create account"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/_20sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already Have An Account? "
+            android:textColor="@color/txt_light_color"
+            android:textSize="@dimen/_11sdp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/loginTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/log_in"
+            android:textColor="@color/dark_red_color"
+            android:textSize="@dimen/_11sdp"
+            android:textStyle="italic" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
