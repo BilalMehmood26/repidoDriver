@@ -59,20 +59,22 @@
             android:hint="Password"
             android:textColorHint="@color/hint_color"
             android:fontFamily="@font/montserrat_regular"
+            android:inputType="textPassword"
             android:textSize="@dimen/_10sdp"
             android:textStyle="italic"
             android:imeOptions="actionDone"
             android:paddingVertical="@dimen/_12sdp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/backIV"
+            app:layout_constraintEnd_toStartOf="@+id/password_toggle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
         <ImageView
-            android:id="@+id/backIV"
-            android:layout_width="@dimen/_15sdp"
-            android:layout_height="@dimen/_15sdp"
+            android:id="@+id/password_toggle"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:padding="@dimen/_6sdp"
             android:src="@drawable/icon_eye_show"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -139,5 +141,15 @@
             android:textStyle="italic" />
 
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

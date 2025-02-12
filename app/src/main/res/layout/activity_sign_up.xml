@@ -23,6 +23,7 @@
         android:fontFamily="@font/montserrat_regular"
         android:textSize="@dimen/_10sdp"
         android:textStyle="italic"
+        android:inputType="textCapWords"
         android:imeOptions="actionNext"
         android:layout_marginBottom="@dimen/_10sdp"
         android:paddingHorizontal="@dimen/_10sdp"
@@ -41,7 +42,43 @@
         android:textSize="@dimen/_10sdp"
         android:textStyle="italic"
         android:imeOptions="actionNext"
-        android:inputType="textEmailAddress"
+        android:inputType="textCapWords"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        app:layout_constraintBottom_toTopOf="@+id/vehicle_model_ET" />
+
+    <EditText
+        android:id="@+id/vehicle_model_ET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_box"
+        android:paddingVertical="@dimen/_12sdp"
+        android:hint="Vehicle Model"
+        android:textColorHint="@color/hint_color"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="italic"
+        android:imeOptions="actionNext"
+        android:inputType="textCapWords"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        app:layout_constraintBottom_toTopOf="@+id/vehicle_name_ET" />
+
+    <EditText
+        android:id="@+id/vehicle_name_ET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_box"
+        android:paddingVertical="@dimen/_12sdp"
+        android:hint="Vehicle Name"
+        android:textColorHint="@color/hint_color"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="italic"
+        android:imeOptions="actionNext"
+        android:inputType="textCapWords"
         android:layout_marginBottom="@dimen/_10sdp"
         android:paddingHorizontal="@dimen/_10sdp"
         android:layout_marginHorizontal="@dimen/_15sdp"
@@ -58,6 +95,7 @@
         android:fontFamily="@font/montserrat_regular"
         android:textSize="@dimen/_10sdp"
         android:textStyle="italic"
+        android:inputType="textEmailAddress"
         android:imeOptions="actionNext"
         android:layout_marginBottom="@dimen/_10sdp"
         android:paddingHorizontal="@dimen/_10sdp"
@@ -70,36 +108,37 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="4"
+        android:background="@drawable/bg_box"
         android:layout_marginHorizontal="@dimen/_15sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         app:layout_constraintBottom_toTopOf="@+id/passwordLayout">
 
-        <EditText
-            android:layout_weight="1"
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/ccp_tv"
+            android:layout_weight="1.23"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_box"
-            android:paddingVertical="@dimen/_12sdp"
-            android:hint="+44"
+            android:layout_gravity="center_vertical"
             android:textColorHint="@color/hint_color"
             android:fontFamily="@font/montserrat_regular"
-            android:textSize="@dimen/_10sdp"
-            android:textStyle="italic"
-            android:imeOptions="actionNext"
-            android:paddingHorizontal="@dimen/_10sdp" />
+            app:ccp_showArrow="true"
+            app:ccp_autoFormatNumber="true"
+            app:ccp_autoDetectCountry="true"
+            app:ccp_textSize="14sp" />
 
         <EditText
-            android:layout_weight="3"
+            android:id="@+id/phone_et"
+            android:layout_weight="2.5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_box"
+            android:background="@null"
             android:paddingVertical="@dimen/_12sdp"
             android:hint="Phone Number"
             android:textColorHint="@color/hint_color"
             android:fontFamily="@font/montserrat_regular"
             android:textSize="@dimen/_10sdp"
+            android:inputType="phone"
             android:textStyle="italic"
-            android:layout_marginStart="@dimen/_10sdp"
             android:imeOptions="actionNext"
             android:paddingHorizontal="@dimen/_10sdp" />
 
@@ -125,18 +164,20 @@
             android:fontFamily="@font/montserrat_regular"
             android:textSize="@dimen/_10sdp"
             android:textStyle="italic"
+            android:inputType="textPassword"
             android:imeOptions="actionDone"
             android:paddingVertical="@dimen/_12sdp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/backIV"
+            app:layout_constraintEnd_toStartOf="@+id/password_toggle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
         <ImageView
-            android:id="@+id/backIV"
-            android:layout_width="@dimen/_15sdp"
-            android:layout_height="@dimen/_15sdp"
+            android:id="@+id/password_toggle"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:padding="@dimen/_5sdp"
             android:src="@drawable/icon_eye_show"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -189,7 +230,16 @@
             android:textColor="@color/dark_red_color"
             android:textSize="@dimen/_11sdp"
             android:textStyle="italic" />
-
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

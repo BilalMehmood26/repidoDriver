@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
         android:background="@color/box_bg_color"
         android:gravity="center"
-        android:layout_marginHorizontal="@dimen/_15sdp"
         android:orientation="vertical"
         android:paddingVertical="@dimen/_20sdp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,114 +18,179 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="@dimen/_65sdp"
             android:layout_height="@dimen/_65sdp"
-            android:orientation="vertical"
+            android:background="@drawable/bg_box2"
             android:gravity="center"
-            android:background="@drawable/bg_box2">
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/medicine_iv"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView"
                 android:layout_width="@dimen/_22sdp"
                 android:layout_height="@dimen/_22sdp"
-                android:src="@drawable/icon_camera_iv"/>
+                android:src="@drawable/icon_camera_iv"
+                app:layout_constraintBottom_toTopOf="@+id/textView4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
 
             <TextView
+                android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_5sdp"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="Take Photo"
-                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_4sdp"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_8sdp"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-        </LinearLayout>
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/medicine_iv_goup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="textView4,imageView"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/titleTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
             android:fontFamily="@font/montserrat_medium"
             android:text="Charlie Allison"
             android:textColor="@color/black"
             android:textSize="@dimen/_14sdp"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
         <TextView
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
             android:fontFamily="@font/montserrat_medium"
             android:text="Medicine Receiver"
             android:textColor="@color/hint_color"
             android:textSize="@dimen/_9sdp"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="@+id/titleTV"
+            app:layout_constraintStart_toStartOf="@+id/titleTV"
+            app:layout_constraintTop_toBottomOf="@+id/titleTV" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:background="@drawable/bg_box2"
-            android:fontFamily="@font/montserrat_regular"
-            android:hint="Receiver Id"
-            android:imeOptions="actionNext"
-            android:paddingHorizontal="@dimen/_10sdp"
-            android:paddingVertical="@dimen/_12sdp"
-            android:textColorHint="@color/hint_light_color"
-            android:textSize="@dimen/_10sdp"
-            android:textStyle="italic"/>
-
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_105sdp"
-            android:orientation="vertical"
-            android:gravity="center"
             android:layout_marginHorizontal="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/bg_box2">
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/bg_box2"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            tools:layout_editor_absoluteX="19dp">
 
             <ImageView
+                android:id="@+id/parcel_iv"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView2"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
-                android:src="@drawable/icon_camera_iv"/>
+                android:src="@drawable/icon_camera_iv"
+                app:layout_constraintBottom_toTopOf="@+id/textView5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
 
             <TextView
+                android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_5sdp"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="Picture of package delivered"
                 android:textColor="@color/black"
-                android:layout_marginTop="@dimen/_5sdp"
                 android:textSize="@dimen/_10sdp"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                app:layout_constraintStart_toStartOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-        </LinearLayout>
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/parcel_iv_goup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="textView5,imageView2"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <se.warting.signatureview.views.SignaturePad
+            android:id="@+id/signature_view"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_130sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout4"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/clearTV"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/gradient_bg2"
-            android:fontFamily="@font/montserrat_medium"
-            android:text="Signature"
-            android:textColor="@color/black"
+            android:background="@color/red_color"
+            android:fontFamily="@font/montserrat_regular"
             android:gravity="center"
-            android:imeOptions="actionNext"
             android:paddingHorizontal="@dimen/_10sdp"
-            android:paddingVertical="@dimen/_12sdp"
-            android:textSize="@dimen/_10sdp"
-            android:textStyle="italic"/>
+            android:paddingVertical="@dimen/_5sdp"
+            android:text="Clear"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="@+id/signature_view"
+            app:layout_constraintTop_toTopOf="@+id/signature_view" />
+
 
         <TextView
             android:id="@+id/orderNowTV"
-            android:layout_weight="0.7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_weight="0.7"
             android:background="@color/red_color"
             android:fontFamily="@font/montserrat_regular"
             android:gravity="center"
@@ -133,8 +199,20 @@
             android:text="Mark Complete"
             android:textColor="@color/white"
             android:textSize="@dimen/_12sdp"
-            android:layout_marginTop="@dimen/_15sdp"/>
+            app:layout_constraintEnd_toEndOf="@+id/signature_view"
+            app:layout_constraintStart_toStartOf="@+id/signature_view"
+            app:layout_constraintTop_toBottomOf="@+id/signature_view" />
 
-    </LinearLayout>
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

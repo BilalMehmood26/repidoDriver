@@ -13,13 +13,14 @@ import com.buzzware.radidodriver.fragments.*
 
 class DashBoardActivity : AppCompatActivity(), FragmentListener {
 
-    lateinit var binding : ActivityDashBoardBinding
+    lateinit var binding: ActivityDashBoardBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDashBoardBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
+        window.decorView.systemUiVisibility =
+            (View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
 
         setView()
         setListener()
@@ -70,14 +71,13 @@ class DashBoardActivity : AppCompatActivity(), FragmentListener {
     override fun loadFragment(value: String) {
 
         when (value) {
-            "mapFragment" -> {
-                binding.appBar.titleTV.text = "Location"
+            "Home" ->{
+                binding.homeTab.setImageResource(R.drawable.icon_home_selected)
+                binding.profileTab.setImageResource(R.drawable.icon_profile_unselected)
                 binding.appBar.root.visibility = View.VISIBLE
-                binding.appBar.backIV.visibility = View.VISIBLE
-                val transaction = supportFragmentManager.beginTransaction()
-                transaction.replace(binding.container.id, MapFragment())
-                transaction.addToBackStack(null)
-                transaction.commit()
+                binding.appBar.backIV.visibility = View.INVISIBLE
+                binding.appBar.titleTV.text = "Home"
+                loadFragment(HomeFragment())
             }
 
             "profileAccount" -> {
@@ -107,33 +107,43 @@ class DashBoardActivity : AppCompatActivity(), FragmentListener {
 
     }
 
+    override fun loadMapFragment(lng: Double, lat: Double, orderID: String) {
+        binding.appBar.titleTV.text = "Location"
+        binding.appBar.root.visibility = View.VISIBLE
+        binding.appBar.backIV.visibility = View.VISIBLE
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(binding.container.id, MapFragment(lat,lng, orderID))
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
+
     override fun onBackPressed() {
         super.onBackPressed()
         checkInstance()
     }
 
-    private fun checkInstance(){
-        when (supportFragmentManager.findFragmentById(binding.container.id)){
+    private fun checkInstance() {
+        when (supportFragmentManager.findFragmentById(binding.container.id)) {
 
-            is HomeFragment ->{
+            is HomeFragment -> {
                 setHomeTab()
             }
 
-            is MapFragment ->{
+            is MapFragment -> {
                 binding.appBar.root.visibility = View.VISIBLE
                 binding.appBar.backIV.visibility = View.VISIBLE
             }
 
-            is ProfileFragment ->{
+            is ProfileFragment -> {
                 setProfileTab()
             }
 
-            is AccountFragment ->{
+            is AccountFragment -> {
                 binding.appBar.root.visibility = View.VISIBLE
                 binding.appBar.backIV.visibility = View.VISIBLE
             }
 
-            is NotificationFragment ->{
+            is NotificationFragment -> {
                 binding.appBar.root.visibility = View.VISIBLE
                 binding.appBar.backIV.visibility = View.VISIBLE
             }
