@@ -212,8 +212,9 @@ class MapFragment(val latitude: Double, val longitude: Double, val orderID: Stri
                                     "parsalImage" to parcelImage,
                                     "reciverImage" to medicineImage,
                                     "signatureImage" to signatureImage,
-                                    "status" to "Payment Approval"
+                                    "status" to "Complete"
                                 )
+
                                 Firebase.firestore.collection("OrderRequest").document(orderID)
                                     .update(updateOrder as Map<String, Any>).addOnSuccessListener {
                                         dialogBinding.progressBar.visibility = View.GONE
